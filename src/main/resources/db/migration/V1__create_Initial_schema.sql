@@ -11,6 +11,7 @@ CREATE TABLE users (
 CREATE TYPE account_type AS ENUM (
     'CREDIT_CARD',  -- Cartão de crédito
     'DEBIT',        -- Cartão de débito
+    'PIX',          -- PIX
     'CHECKING',     -- Conta corrente
     'SAVINGS'       -- Poupança
 );
