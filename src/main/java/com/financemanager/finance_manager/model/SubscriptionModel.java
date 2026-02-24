@@ -17,7 +17,7 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Subscription {
+public class SubscriptionModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
