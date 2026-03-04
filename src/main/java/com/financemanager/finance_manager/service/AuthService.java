@@ -1,12 +1,11 @@
 package com.financemanager.finance_manager.service;
 
-import com.financemanager.finance_manager.dto.AuthResponse;
-import com.financemanager.finance_manager.dto.LoginRequest;
-import com.financemanager.finance_manager.dto.RegisterRequest;
+import com.financemanager.finance_manager.dto.authentication.AuthResponse;
+import com.financemanager.finance_manager.dto.authentication.LoginRequest;
+import com.financemanager.finance_manager.dto.authentication.RegisterRequest;
 import com.financemanager.finance_manager.model.UserModel;
 import com.financemanager.finance_manager.repository.UserRepository;
 import com.financemanager.finance_manager.security.JwtService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;

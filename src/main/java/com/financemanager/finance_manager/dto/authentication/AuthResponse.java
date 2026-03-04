@@ -1,4 +1,4 @@
-package com.financemanager.finance_manager.dto;
+package com.financemanager.finance_manager.dto.authentication;
 
 import java.util.UUID;
 

@@ -1,7 +1,7 @@
 package com.financemanager.finance_manager.controller;
 
-import com.financemanager.finance_manager.dto.AuthResponse;
-import com.financemanager.finance_manager.dto.RegisterRequest;
+import com.financemanager.finance_manager.dto.authentication.AuthResponse;
+import com.financemanager.finance_manager.dto.authentication.RegisterRequest;
 import com.financemanager.finance_manager.service.AuthService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
