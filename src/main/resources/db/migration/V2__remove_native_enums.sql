@@ -1,0 +1,8 @@
+ALTER TABLE categories ALTER COLUMN type TYPE VARCHAR(50);
+ALTER TABLE transactions ALTER COLUMN type TYPE VARCHAR(50);
+ALTER TABLE accounts ALTER COLUMN type TYPE VARCHAR(50);
+
+DROP TYPE transaction_type;
+DROP TYPE account_type;
+
+

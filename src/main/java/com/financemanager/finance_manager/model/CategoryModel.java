@@ -31,7 +31,7 @@ public class CategoryModel {
     private String name;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, columnDefinition = "transaction_type")
+    @Column(nullable = false, length = 50)
     private TransactionType type;
 
     @Column(nullable = false, length = 50)

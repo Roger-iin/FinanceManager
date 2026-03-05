@@ -44,7 +44,7 @@ public class TransactionModel {
     private BigDecimal amount;
 
     @Enumerated(value = EnumType.STRING)
-    @Column(nullable = false, columnDefinition = "transaction_type")
+    @Column(nullable = false, length = 50)
     private TransactionType type;
 
     @Column(nullable = false)
