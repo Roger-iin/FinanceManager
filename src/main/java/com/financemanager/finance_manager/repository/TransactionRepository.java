@@ -14,7 +14,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-public interface TransactionRepository extends JpaRepository {
+public interface TransactionRepository extends JpaRepository<TransactionModel, UUID> {
 
     Optional<TransactionModel> findByIdAndUserId(UUID id, UUID userId);
 
@@ -24,7 +24,7 @@ public interface TransactionRepository extends JpaRepository {
             LocalDate endDate
     );
 
-    List<TransactionModel> findByUserIdAndTypeAndDateBetweenOrderBrDateDesc(
+    List<TransactionModel> findByUserIdAndTypeAndDateBetweenOrderByDateDesc(
             UUID userId,
             TransactionType type,
             LocalDate startDate,
@@ -39,7 +39,7 @@ public interface TransactionRepository extends JpaRepository {
     );
 
     @Query("""
-            SELECT SUM(t.amount) FROM transaction t
+            SELECT SUM(t.amount) FROM TransactionModel t
             WHERE t.user.id = :userId
             AND t.type = :type
             AND t.date BETWEEN :start AND :end

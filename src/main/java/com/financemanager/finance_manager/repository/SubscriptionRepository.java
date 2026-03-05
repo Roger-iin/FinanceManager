@@ -15,7 +15,7 @@ public interface SubscriptionRepository extends JpaRepository<SubscriptionModel,
 
    List<SubscriptionModel> findByUserIdAndActiveTrue(UUID userID);
 
-   Optional<SubscriptionModel> findByIdAndUserID(UUID id, UUID userID);
+   Optional<SubscriptionModel> findByIdAndUserId(UUID id, UUID userID);
 
 
 }
