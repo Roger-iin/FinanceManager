@@ -33,7 +33,7 @@ public class AuthService {
         UserModel user = UserModel.builder()
                 .name(request.name())
                 .email(request.email())
-                .password(request.password())
+                .password(passwordEncoder.encode(request.password()))
                 .build();
         userRepository.save(user);
         String token = jwtService.generateToken(user);
