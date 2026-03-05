@@ -25,15 +25,14 @@ public class CategoryService {
         this.categoryMapper = categoryMapper;
     }
 
-    public List<CategoryResponse> findAll(UserModel user){
+    public List<CategoryResponse> findAll(UserModel user, TransactionType type){
+        if (type != null){
+            return categoryRepository.findAllAvaliableForUserByType(user.getId(), type)
+                    .stream()
+                    .map(categoryMapper::toResponse)
+                    .toList();
+        }
         return categoryRepository.findAllAvaliableForUser(user.getId())
-                .stream()
-                .map(categoryMapper::toResponse)
-                .toList();
-    }
-
-    public List<CategoryResponse> findAllByType(UserModel user, TransactionType type){
-        return categoryRepository.findAllAvaliableForUserByType(user.getId(), type)
                 .stream()
                 .map(categoryMapper::toResponse)
                 .toList();

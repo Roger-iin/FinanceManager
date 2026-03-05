@@ -23,7 +23,7 @@ public interface CategoryRepository extends JpaRepository<CategoryModel, UUID> {
             """)
     List<CategoryModel> findAllAvaliableForUserByType(
             @Param("userId") UUID userId,
-            @Param("type")TransactionType type
+            @Param("type") TransactionType type
     );
 
     @Query("""
