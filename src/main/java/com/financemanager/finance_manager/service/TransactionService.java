@@ -13,11 +13,13 @@ import com.financemanager.finance_manager.repository.CategoryRepository;
 import com.financemanager.finance_manager.repository.TransactionRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
+@Service
 public class TransactionService {
 
     private final TransactionRepository transactionRepository;
