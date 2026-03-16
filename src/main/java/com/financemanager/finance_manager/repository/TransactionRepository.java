@@ -45,7 +45,7 @@ public interface TransactionRepository extends JpaRepository<TransactionModel, U
             AND t.date BETWEEN :start AND :end
             """)
     BigDecimal sumByUserIdAndTypeAndDateBetween(
-            @Param("userID") UUID userID,
+            @Param("userId") UUID userId,
             @Param("type") TransactionType type,
             @Param("start") LocalDate start,
             @Param("end") LocalDate end
