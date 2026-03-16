@@ -53,7 +53,8 @@ public class SubscriptionService {
     public SubscriptionResponse create(SubscriptionRequest request, UserModel user){
         AccountModel account = accountRepository.findByIdAndUserId(request.accountId(), user.getId())
                 .orElseThrow(() -> new EntityNotFoundException("Conta não encontrada"));
-        CategoryModel category = null;
+        CategoryModel category = categoryRepository.findByIdAvailableForUser(request.categoryId(), user.getId())
+                .orElseThrow(() -> new EntityNotFoundException("Categoria não encontrada"));
         if (category != null){
             category = categoryRepository.findByIdAvailableForUser(request.categoryId(), user.getId())
                     .orElseThrow(() -> new EntityNotFoundException("Categoria não encontrada"));
@@ -70,11 +71,8 @@ public class SubscriptionService {
                 .orElseThrow(() -> new EntityNotFoundException("Assinatura não encontrada"));
         AccountModel account = accountRepository.findByIdAndUserId(request.accountId(), user.getId())
                 .orElseThrow(() -> new EntityNotFoundException("Conta não encontrada"));
-        CategoryModel category = null;
-        if (category != null){
-            category = categoryRepository.findByIdAvailableForUser(request.categoryId(), user.getId())
-                    .orElseThrow(() -> new EntityNotFoundException("Categoria não encontrada"));
-        }
+        CategoryModel category = categoryRepository.findByIdAvailableForUser(request.categoryId(), user.getId())
+                .orElse(category = null);
         subscriptionMapper.updateEntity(subscription, request, account, category);
         SubscriptionModel saved = subscriptionRepository.save(subscription);
 
